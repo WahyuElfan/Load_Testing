@@ -1,5 +1,7 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+
 
 export let options = {
   vus: 10, // Number of virtual users
@@ -15,4 +17,11 @@ export default function () {
   });
 
   sleep(1); // Pause for 1 second between requests
+};
+
+export function handleSummary(data) {
+  return {
+    "./reports/summaryk6.html": htmlReport(data), //Saves in "reports" folder
+  };
 }
+
