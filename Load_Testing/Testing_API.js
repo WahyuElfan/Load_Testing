@@ -9,7 +9,7 @@ export let options = {
 };
 
 export default function () {
-  let res = http.get('https://test-api.k6.io/public/crocodiles/');
+  let res = http.get('https://reqres.in/api/users');
   console.log()
 
   // Check if response status is 200
