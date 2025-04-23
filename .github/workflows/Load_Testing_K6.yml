@@ -1,0 +1,34 @@
+name: K6 Load Test on Windows
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  k6-load-test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Chocolatey
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+          iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+      - name: Install K6 via Chocolatey
+        run: choco install k6 -y
+    
+      - name: Run All K6 Test Files
+        run: |
+          for file in Load_Testing_K6\*.js; do
+            echo "Running $file"
+            k6 run "$file"
+          done
+        shell: bash
+        env:
+          BASE_URL: https://reqres.in
+      

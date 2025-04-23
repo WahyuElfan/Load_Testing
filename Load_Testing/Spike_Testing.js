@@ -10,7 +10,7 @@ export let options = {
 }
 
 export default function () {
-    let res = http.get('https://services.majoo.id/ms-e-menu-tentakel/product_detail/Sik-Asik-4742?id_product=9&customer_no=LITECUST-67a0352a4346e');
+    let res = http.get('https://reqres.in/api/unknown');
       console.log()
 
      check(res, {
