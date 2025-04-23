@@ -19,10 +19,3 @@ export default function () {
 
   sleep(1); // Pause for 1 second between requests
 };
-
-export function handleSummary(data) {
-  return {
-    "./reports/summaryk6.html": htmlReport(data), //Saves in "reports" folder
-  };
-}
-
