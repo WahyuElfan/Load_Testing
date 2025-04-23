@@ -24,7 +24,7 @@ jobs:
     
       - name: Run All K6 Test Files
         run: |
-          for file in Load_Testing_K6\*.js; do
+          for file in Load_Testing\*.js; do
             echo "Running $file"
             k6 run "$file"
           done
