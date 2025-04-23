@@ -4,13 +4,14 @@ import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporte
 
 
 export let options = {
-  vus: 10, // Number of virtual users
+  vus: 50, // Number of virtual users
   duration: '30s', // Test duration
 };
 
 export default function () {
   let res = http.get('https://test-api.k6.io/public/crocodiles/');
-  
+  console.log()
+
   // Check if response status is 200
   check(res, {
     'is status 200': (r) => r.status === 200,

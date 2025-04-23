@@ -11,9 +11,12 @@ K6 version
 ### Run the test and output JSON results
 k6 run filename --out json=report.json
 
-## Output html results
-### Install k6-html-reporter
-npm install k6-html-reporter --save-dev
+### Output html results Install k6-html-reporter
+1. npm install k6-html-reporter --save-dev
+2. k6 run filename
+3. Open location file and then klik file summaryk6.html
 
-### Run Script
-k6 run filename
+### Output html results real-time
+1. $env:K6_WEB_DASHBOARD="true"
+2. k6 run filename
+3. Klik value URL web dashboard: http://127.0.0.1:xxxx
